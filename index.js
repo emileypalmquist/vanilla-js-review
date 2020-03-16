@@ -11,8 +11,8 @@ fetch(`http://localhost:3000/images/${imageId}`)
 
 fetch('http://localhost:3000/comments')
     .then(resp => resp.json())
-    .then(data => {
-        renderComments(data)
+    .then(comments => {
+        renderComments(comments)
     })
 
 function renderData(image) {
@@ -43,8 +43,8 @@ function updateLikes(likes) {
     })
 }
 
-function renderComments(data) {
-    data.forEach(comment => {
+function renderComments(comments) {
+    comments.forEach(comment => {
         let li = document.createElement('li')
         commentUl.append(li)
         li.innerText = comment.content
